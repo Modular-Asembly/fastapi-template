@@ -10,7 +10,7 @@ from sqlalchemy.orm import Session
 from app.modassembly.authentication.core.create_access_token import (
     create_access_token,
 )
-from app.modassembly.database.sql.get_session import get_session
+from app.modassembly.database.sql.get_sql_session import get_sql_session
 from app.models.User import User
 
 
@@ -30,7 +30,7 @@ class Token(BaseModel):
 @router.post("/token")
 def login_api(
     form_data: Annotated[OAuth2PasswordRequestForm, Depends()],
-    session: Session = Depends(get_session),
+    session: Session = Depends(get_sql_session),
 ) -> Token:
     user = session.query(User).filter(User.email == form_data.username).first()
     if not user:

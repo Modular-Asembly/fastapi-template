@@ -9,7 +9,7 @@ from app.modassembly.authentication.core.create_access_token import (
     ALGORITHM,
     SECRET_KEY,
 )
-from app.modassembly.database.sql.get_session import get_session
+from app.modassembly.database.sql.get_sql_session import get_sql_session
 from app.models.User import User
 
 
@@ -18,7 +18,7 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
 def authenticate(
     token: Annotated[str, Depends(oauth2_scheme)],
-    session: Annotated[Session, Depends(get_session)],
+    session: Annotated[Session, Depends(get_sql_session)],
 ) -> User:
     try:
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
