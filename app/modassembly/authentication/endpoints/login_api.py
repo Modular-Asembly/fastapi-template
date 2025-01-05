@@ -38,7 +38,6 @@ def login_api(
             status_code=status.HTTP_404_NOT_FOUND,
             detail=f"User not found for email :: {form_data.username}",
         )
-    user.id.value
     if not pwd_context.verify(form_data.password, str(user.password)):
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,

@@ -1,4 +1,4 @@
-from app.modassembly.database.sql.get_session import Base
+from app.modassembly.database.sql.get_sql_session import Base
 
 from sqlalchemy import Column, Integer, String
 
