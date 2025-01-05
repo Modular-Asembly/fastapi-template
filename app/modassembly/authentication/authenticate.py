@@ -13,7 +13,7 @@ from app.modassembly.database.sql.get_sql_session import get_sql_session
 from app.models.User import User
 
 
-oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
 
 
 def authenticate(
