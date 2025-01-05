@@ -5,7 +5,7 @@ from fastapi import Depends, HTTPException, status
 from fastapi.security import OAuth2PasswordBearer
 from sqlalchemy.orm import Session
 
-from app.modassembly.authentication.core.create_access_token import (
+from app.modassembly.authentication.create_access_token import (
     ALGORITHM,
     SECRET_KEY,
 )
