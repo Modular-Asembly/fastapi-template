@@ -1,5 +1,6 @@
 from google.cloud import firestore
 
+
 _client = None
 
 
