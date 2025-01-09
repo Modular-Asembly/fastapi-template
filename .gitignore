@@ -4,3 +4,4 @@ venv
 .env
 config.json
 conversation.json
+test.db
