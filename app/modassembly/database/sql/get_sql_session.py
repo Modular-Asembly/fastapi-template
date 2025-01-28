@@ -1,5 +1,5 @@
 import os
-from typing import Iterator
+from typing import Generator
 
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
@@ -11,7 +11,7 @@ engine = create_engine(os.environ["DB_URL"])
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 
-def get_sql_session() -> Iterator[Session]:
+def get_sql_session() -> Generator[Session, None, None]:
     db = SessionLocal()
     try:
         yield db
